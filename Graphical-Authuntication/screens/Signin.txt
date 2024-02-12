@@ -1,0 +1,96 @@
+import React, { useState } from 'react'
+import { Alert, Dimensions, Image, ImageBackground, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import auth from "@react-native-firebase/auth";
+
+const { height, width } = Dimensions.get('window')
+
+
+
+const Signin = () => {
+
+
+  const [emailID, setemailID] = useState('')
+  const [password, setpassword] = useState('')
+
+
+
+  // const LoginAuth = async () => {
+  //   await auth().createUserWithEmailAndPassword(emailID, password)
+  //   console.log(auth().currentUser?.email)
+  // }
+
+  const __doCreateUser = async () => {
+
+    let response = await auth().createUserWithEmailAndPassword(
+      emailID,
+      password
+    )
+    if (response && response.user) {
+      Alert.alert("Success ✅", "Account created successfully")
+    }
+
+  }
+
+  return (
+    <View style={styles.container}>
+      <ImageBackground source={require('/home/tarun/Project/images/5172658.jpg')} style={styles.container} blurRadius={10}>
+        {/* <Image source={requi('/home/tarun/Project/images/login.jpg')} style={{ height: '30%', width: width-50 , opacity:0.3,}}></Image> */}
+        <View style={styles.box}>
+          <Text style={styles.txt}>Sign Up</Text>
+          <View style={{ height: 120, width: 290, backgroundColor: 'white', borderRadius: 20, marginTop: 30, padding: 10 }}>
+            <TextInput
+              placeholder='xyz@mail.com'
+              placeholderTextColor={'grey'}
+              style={{ borderBottomWidth: 0.4, borderBottomColor: 'black', color: 'black', fontSize: 16 }}
+              value={emailID}
+              onChangeText={(text) => setemailID(text)}
+
+            >
+            </TextInput>
+            <TextInput
+              placeholder='Create password'
+              placeholderTextColor={'grey'}
+              style={{ color: 'black', fontSize: 16 }}
+              value={password}
+              onChangeText={(text) => setpassword(text)}
+            >
+            </TextInput>
+          </View>
+          <TouchableOpacity onPress={__doCreateUser}>
+            <View style={{ backgroundColor: 'grey', height: 50, width: 150, marginTop: 20, alignItems: 'center', justifyContent: 'center', borderRadius: 30 }}>
+              <Text style={{ fontSize: 18, color: 'white' }}>Create</Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity >
+            <Text>Already have an account?</Text>
+            </TouchableOpacity>
+        </View>
+      </ImageBackground>
+
+    </View>
+  )
+}
+
+const styles = StyleSheet.create({
+  container: {
+    height: height,
+    width: width
+  },
+  box: {
+    height: '65%',
+    width: width,
+    borderRadius: 20,
+    backgroundColor: 'rgba(247, 242, 242, 0.4)',
+    position: 'absolute',
+    bottom: 0,
+    alignItems: 'center'
+
+  },
+  txt: {
+    fontSize: 28,
+    fontWeight: '700',
+    color: 'black',
+    marginTop: 35
+  }
+})
+export default Signin

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "849495896303",
+    "project_id": "mackerz-3e5eb",
+    "storage_bucket": "mackerz-3e5eb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:849495896303:android:6403e4aab84a4892c7eb1a",
+        "android_client_info": {
+          "package_name": "com.mackerz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "849495896303-mlgcqt3jlr9jgk23g3j260jvnghtvc33.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhA7o7MFkuT8AN92vinnCq6mENq_VrsdA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "849495896303-mlgcqt3jlr9jgk23g3j260jvnghtvc33.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
